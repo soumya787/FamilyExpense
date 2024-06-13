@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+         text-align:center;
+         color:Brown;
+         }
+         body{
+         background-color:silver;
+         }
+    </style>
+</head>
+<body>
+<h1>Family member details</h1>
+<br>
+
+    <table border="1" align="center">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>mobile</th>
+            <th>occupation</th>
+            <th>income</th>
+        </tr>
+        {% for item in x %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.mobile}}</td>
+            <td>{{item.occupation}}</td>
+            <td>{{item.income}}</td>
+            <td><a href="{% url 'edit' item.id %}">
+                edit</a></td>
+            <td><a href="{% url 'delete' item.id %}">
+                delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

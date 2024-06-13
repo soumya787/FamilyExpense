@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+        text-align:center;
+        color:Red;
+       }
+       input[type=text]{
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size:22px;
+            font-style:Italic
+            border-radius: 10px;
+            border: 2px solid #30475e;
+               }
+         input[type=number]{
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size:22px;
+            font-style:Italic
+            border-radius: 10px;
+            border: 2px solid #30475e;
+               }
+         input[type=submit]{
+            color:Blue;
+              padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+             }
+         .select{
+         padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size:22px;
+            font-style:Italic
+            border-radius: 10px;
+            border: 2px solid #30475e;
+            }
+    </style>
+</head>
+<body>
+<h1>Update expense </h1>
+<table align="center">
+    <form method="post">
+        {% csrf_token %}
+        <tr>
+            <td>
+        <select class="select" name="name">
+                {% for i in y %}
+                <option value="{{i.id}}">{{ i.name }}</option>
+                {% endfor %}
+        </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="text" class="form-control" value="{{x.purpose}}" name="purpose" required>
+            </td>
+        </tr>
+        <tr>
+               <td>
+                   <input type="number" class="form-control" value="{{x.expense}}" name="expense" required>
+               </td>
+        </tr>
+        <tr><td>
+            <input type="submit" class="btn btn-primary btn-block" value="Add Expense">
+        </td></tr>
+    </form>
+</table>
+</body>
+</html>

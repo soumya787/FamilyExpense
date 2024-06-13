@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+        font-style:italic;
+        text-align:center;
+        }
+
+        input[type=text]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+        input[type=tel]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+         input[type=number]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+          input[type=submit]{
+            color:Blue;
+              padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+             }
+
+        #body{
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+            }
+    </style>
+</head>
+<body id="body" style="background-image: url('{% static 'images/fam.jpg' %}')";>
+<h1>Adding family member</h1>
+<table align="center">
+    <form action="addmemberaction" method="post">
+        {% csrf_token %}
+        <tr>
+            <td>
+                <input type="text" placeholder="enter name" name="memberName"/><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <input type="tel" placeholder="enter mobile number" name="memberPhone"/><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+             <input type="text" placeholder="enter the occupation" name="memberOccupation"/><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <input type="number" placeholder="enter income" name="memberIncome"/><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               <input type="submit" value="add member">
+            </td>
+        </tr>
+
+    </form>
+</table>
+</body>
+</html>

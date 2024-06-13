@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+        font-style:italic;
+        text-align:center;
+        }
+
+        input[type=text]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+        input[type=tel]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+         input[type=number]{
+            padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+                border-radius: 10px;
+                 border: 2px solid #30475e;
+               }
+          input[type=submit]{
+            color:Blue;
+              padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size:22px;
+                font-style:Italic;
+             }
+         body{
+            background-size:50%;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+            }
+    </style>
+</head>
+<body  style="background-image: url('{% static 'images/famimage.png' %}')";>
+<h1>Edit family memebers</h1>
+<table align="center">
+    <form method="post">
+        {% csrf_token %}
+        <tr>
+            <td>
+                <input type="text" value="{{x.name}}" name="memberName"/><br>
+            </td>
+        </tr>
+        <tr><td>
+            <input type="tel" value="{{x.mobile}}" name="memberPhone"/><br>
+        </td></tr>
+        <tr><td>
+            <input type="text" value="{{x.occupation}}" name="memberOccupation"/><br
+        </td></tr>
+        <tr><td>
+        <input type="number" value="{{x.income}}" name="memberIncome"/><br>
+         </td></tr>
+        <tr><td>
+        <input type="submit" value="edit member">
+         </td></tr>
+    </form>
+</table>
+</body>
+</html>

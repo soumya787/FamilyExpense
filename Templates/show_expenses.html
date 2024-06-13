@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+        text-align:center;
+        color:brown;
+        }
+        body{
+        background-color:#f4f4f4;
+        }
+    </style>
+</head>
+<body>
+<h1>Expenditures</h1>
+    <table border="1" align="center">
+        <tr>
+            <th>membername_id</th>
+            <th>membername</th>
+            <th>expense</th>
+            <th>purpose</th>
+        </tr>
+        {% for item in x %}
+        <tr>
+            <td>{{item.membername_id}}</td>
+            <td>{{item.membername}}</td>
+            <td>{{item.expense}}</td>
+            <td>{{item.purpose}}</td>
+            <td><a href="{% url 'editexpense' item.id %}">
+                edit</a></td>
+            <td><a href="{% url 'deleteexpense' item.id %}">
+                delete</a> </td>
+        </tr>
+        {% endfor %}
+</body>
+</html>
